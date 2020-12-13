@@ -104,7 +104,7 @@ class RunAllCase:
         if no.get('name') == 'passport.login.security':
             try:
                 code = result['value'].split('cncode=')[1]
-                cache.set(url + 'code', code, settings.REDIS_TIMEOUT)
+                cache.set(url + 'code', code, settings.NEVER_REDIS_TIMEOUT)
             except AttributeError as e:
                 logger.warning(url, result, e)
 

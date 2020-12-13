@@ -102,35 +102,38 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# 设置时区
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 # 设置redis
 caches = {
     'default': {
         'BACKEND': 'redis_caches.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379',
-        'OPTIONS': {'CLIENT_CLASS': 'django_redis.client.DefaultClient', },
-
+        'LOCATION': 'redis://:127.0.0.1:6379/5',
+        'OPTIONS': {'CLIENT_CLASS': 'redis.client.DefaultClient', },
     },
 }
-REDIS_TIMEOUT = 7 * 24 * 60 * 60
+REDIS_TIMEOUT = 7 * 24 * 60 * 60 * 10
 CUBES_REDIS_TIMEOUT = 60 * 60
 NEVER_REDIS_TIMEOUT = 365 * 24 * 60 * 60
+
 # 设置URL、appkey、secret等配置
 URL_BEFORE = "https://service-wbs321.newtamp.cn"
-URL_AFTER = "https://service-wbsrecu.newbanker.cn"
+URL_AFTER = "https://service-wbs324.newtamp.cn"
 APPKEY = "test"
 SECRET = "123456"
+
 # 创建日志的路径
 LOG_PATH = os.path.join(BASE_DIR, 'log')
 # 如果地址不存在，则会自动创建log文件夹

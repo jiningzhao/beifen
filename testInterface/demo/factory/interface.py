@@ -1,7 +1,6 @@
 import requests
 
 
-
 class InterfaceRequests:
     def __init__(self, url, data, header):
         self.url = url

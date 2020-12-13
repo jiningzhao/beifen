@@ -20,4 +20,5 @@ from demo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.haha),
+    path('nashou/', views.nanshou),
 ]
